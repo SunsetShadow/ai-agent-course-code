@@ -1,7 +1,7 @@
-买了课程加我微信 guangguangsunlight 进售后答疑群
+买了课程可以加我微信 guangguangsunlight 进售后答疑群
 
-课程内容只是一小部分，很多不适合放在课程里公开讲的会在群内讲
-
-群内每周几次直播，可以随时问问题
+群内偶尔会直播讲一些东西
 
 后续也会分享一些 ai 使用上的技巧
+
+不想进群也可以，群内答疑内容会定期沉淀在 https://www.yuque.com/shenshuoyaoyouguang-ivldp/ai-agent-course-chat/oym23csku4gtlu2z
