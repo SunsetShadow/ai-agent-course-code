@@ -2,6 +2,7 @@ import 'dotenv/config';
 import { ChatOpenAI } from '@langchain/openai';
 import { ChatPromptTemplate } from '@langchain/core/prompts';
 
+// 初始化模型：使用环境变量配置模型名称、密钥和网关地址。
 const model = new ChatOpenAI({
   modelName: process.env.MODEL_NAME,
   apiKey: process.env.OPENAI_API_KEY,
@@ -11,7 +12,7 @@ const model = new ChatOpenAI({
   },
 });
 
-
+// 定义聊天提示词模板：包含 system 指令和 human 侧的周报输入结构。
 const chatPrompt = ChatPromptTemplate.fromMessages([
   [
     'system',
@@ -44,6 +45,7 @@ const chatPrompt = ChatPromptTemplate.fromMessages([
   ],
 ]);
 
+// 将模板变量填充为具体的本周业务数据，生成可发送给模型的消息数组。
 const chatMessages = await chatPrompt.formatMessages({
   tone: '专业、清晰、略带鼓励',
   company_name: '星航科技',
@@ -61,8 +63,8 @@ const chatMessages = await chatPrompt.formatMessages({
 console.log('ChatPromptTemplate 生成的消息:');
 console.log(chatMessages);
 
+// 调用模型生成周报草稿，并输出结果。
 const response = await model.invoke(chatMessages);
 
 console.log('\nAI 生成的周报草稿:');
 console.log(response.content);
-
