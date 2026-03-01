@@ -1,4 +1,5 @@
 import { pipelinePrompt } from "./pipeline-prompt-template.mjs";
+// 基于已有的 pipeline prompt 进行 partial 预填充，固化公司级公共字段。
 
 const pipelineWithPartial = await pipelinePrompt.partial({
     company_name: '星航科技',
@@ -6,6 +7,7 @@ const pipelineWithPartial = await pipelinePrompt.partial({
     tone: '偏正式但不僵硬',
 });
 
+// 在 partial 基础上补全团队周报变量，生成第一份完整提示词。
 const partialFormatted = await pipelineWithPartial.format({
     team_name: 'AI 平台组',
     manager_name: '刘东',
@@ -17,6 +19,7 @@ const partialFormatted = await pipelineWithPartial.format({
         '- 小强：接入权限系统，支持按部门过滤数据',
 });
 
+// 复用同一 partial 模板，快速生成第二个团队的周报提示词。
 const partialFormatted2 = await pipelineWithPartial.format({
     team_name: 'AI 工程效率组',
     manager_name: '王强',
@@ -28,6 +31,7 @@ const partialFormatted2 = await pipelineWithPartial.format({
         '- 小七：研发发布回滚一键脚本 PoC 版本',
 });
 
+// 打印两份格式化后的模板文本，便于对比查看。
 console.log(partialFormatted);
 console.log('\n================ 分割线：第二份周报模板 ================\n');
 console.log(partialFormatted2);
